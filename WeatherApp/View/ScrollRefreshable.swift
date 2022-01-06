@@ -27,7 +27,7 @@ struct ScrollRefreshable<Content: View>: View {
         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
     .listStyle(.plain)
-    .background(LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all))
+    .background(LinearGradient(colors: [.red, .orange], startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all))
     .refreshable {
       await onRefresh()
     }

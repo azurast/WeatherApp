@@ -15,6 +15,7 @@
 		1B84470E2785A8D000174324 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B84470D2785A8D000174324 /* WeatherViewModel.swift */; };
 		FBC5A3402786C71300983691 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5A33F2786C71300983691 /* Helper.swift */; };
 		FBC5A3452786D42500983691 /* ScrollRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5A3442786D42500983691 /* ScrollRefreshable.swift */; };
+		FBC5A3472786E30100983691 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5A3462786E30100983691 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1B84470D2785A8D000174324 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		FBC5A33F2786C71300983691 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		FBC5A3442786D42500983691 /* ScrollRefreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollRefreshable.swift; sourceTree = "<group>"; };
+		FBC5A3462786E30100983691 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC5A33F2786C71300983691 /* Helper.swift */,
+				FBC5A3462786E30100983691 /* NetworkManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				1B8446FD27858C5500174324 /* ContentView.swift in Sources */,
 				1B84470C2785948500174324 /* Weather.swift in Sources */,
 				FBC5A3402786C71300983691 /* Helper.swift in Sources */,
+				FBC5A3472786E30100983691 /* NetworkManager.swift in Sources */,
 				1B84470E2785A8D000174324 /* WeatherViewModel.swift in Sources */,
 				FBC5A3452786D42500983691 /* ScrollRefreshable.swift in Sources */,
 				1B8446FB27858C5500174324 /* WeatherAppApp.swift in Sources */,
@@ -325,7 +329,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,7 +359,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

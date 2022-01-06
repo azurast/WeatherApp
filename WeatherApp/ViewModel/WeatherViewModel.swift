@@ -29,13 +29,12 @@ class WeatherViewModel: ObservableObject {
   
   // MARK: Fetch Weather
   func fetchWeather() {
-    guard let weatherApiURL = URL(string: Self.weatherApiURL) else {
-      return
-    }
+    guard let weatherApiURL = URL(string: Self.weatherApiURL) else { return }
     
     let request = URLRequest(url: weatherApiURL)
     let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
       if let error = error {
+        print("Can't Fetch")
         print(error)
         return
       }
