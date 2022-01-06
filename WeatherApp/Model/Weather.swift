@@ -8,10 +8,10 @@
 import Foundation
 
 struct WeatherCondition: Codable {
-  let id: Int
-  let main: String
-  let description: String
-  let icon: String
+  var id: Int
+  var main: String
+  var description: String
+  var icon: String
   
   enum CodingKeys: String, CodingKey {
     case id
@@ -38,31 +38,31 @@ struct WeatherCondition: Codable {
 }
 
 struct Weather: Identifiable {
-  let lat: Double?
-  let lon: Double?
-  let weather: [WeatherCondition]?
-  let base: String?
-  let temp: Double?
-  let feelsLike: Double?
-  let tempMin: Double?
-  let tempMax: Double?
-  let pressure: Double?
-  let humidity: Double?
-  let visibility: Int?
-  let windSpeed: Double?
-  let windDeg: Double?
+  var lat: Double?
+  var lon: Double?
+  var weather: [WeatherCondition]?
+  var base: String?
+  var temp: Double?
+  var feelsLike: Double?
+  var tempMin: Double?
+  var tempMax: Double?
+  var pressure: Double?
+  var humidity: Double?
+  var visibility: Int?
+  var windSpeed: Double?
+  var windDeg: Double?
 //  let windGust: Double?
-  let allClouds: Int?
-  let dt: Date?
-  let sysType: Int?
-  let sysId: Int?
-  let sysCountry: String?
-  let sysSunrise: Date?
-  let sysSunset: Date?
-  let timezone: Int?
-  let id: Int
-  let name: String?
-  let cod: Int?
+  var allClouds: Int?
+  var dt: Date?
+  var sysType: Int?
+  var sysId: Int?
+  var sysCountry: String?
+  var sysSunrise: Date?
+  var sysSunset: Date?
+  var timezone: Int?
+  var id: Int
+  var name: String?
+  var cod: Int?
   
   init(lat: Double? = nil, lon: Double? = nil, weather: [WeatherCondition]? = nil, base: String? = nil, temp: Double? = nil, feelsLike: Double? = nil, tempMin: Double? = nil, tempMax: Double? = nil, pressure: Double? = nil, humidity: Double? = nil, visibility: Int? = nil, windSpeed: Double? = nil, windDeg: Double? = nil, allClouds: Int? = nil, dt: Date? = nil, sysType: Int? = nil, sysId: Int? = nil, sysCountry: String? = nil, sysSunrise: Date? = nil, sysSunset: Date? = nil, timezone: Int? = nil, id: Int, name: String? = nil, cod: Int? = nil) {
     self.lat = lat
