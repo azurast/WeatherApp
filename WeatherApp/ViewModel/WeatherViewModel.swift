@@ -36,7 +36,6 @@ class WeatherViewModel: ObservableObject {
     let request = URLRequest(url: weatherApiURL)
     let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
       if let error = error {
-        print("Fetch Weather Error")
         print(error)
         return
       }
@@ -58,10 +57,8 @@ class WeatherViewModel: ObservableObject {
     
     do {
       let weather = try decoder.decode(Weather.self, from: data)
-      print(weather)
       self.weather = weather
     } catch {
-      print("Parse JSON Error")
       print(error)
     }
     
@@ -75,9 +72,9 @@ class WeatherViewModel: ObservableObject {
     if let condition = self.weather.weather?.first?.main {
       formattedWeather.condition = condition
     }
-    formattedWeather.currentTemp = String(format: "%.1f", self.weather.temp!)
-    formattedWeather.minTemp = String(format: "%.1f", self.weather.tempMin!)
-    formattedWeather.maxTemp = String(format: "%.1f", self.weather.tempMax!)
+    formattedWeather.currentTemp = String(format: "%.0f", self.weather.temp!)
+    formattedWeather.minTemp = String(format: "%.0f", self.weather.tempMin!)
+    formattedWeather.maxTemp = String(format: "%.0f", self.weather.tempMax!)
     formattedWeather.sunriseTime = self.weather.sysSunrise!.toTimeString
     formattedWeather.sunsetTime = self.weather.sysSunset!.toTimeString
     formattedWeather.windSpeed = String(format: "%.1f", self.weather.windSpeed!)
