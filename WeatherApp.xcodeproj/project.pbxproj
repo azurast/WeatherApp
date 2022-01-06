@@ -16,6 +16,7 @@
 		FBC5A3402786C71300983691 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5A33F2786C71300983691 /* Helper.swift */; };
 		FBC5A3452786D42500983691 /* ScrollRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5A3442786D42500983691 /* ScrollRefreshable.swift */; };
 		FBC5A3472786E30100983691 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5A3462786E30100983691 /* NetworkManager.swift */; };
+		FBC5A34A2786EFFB00983691 /* preview.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBC5A3492786EFFB00983691 /* preview.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FBC5A33F2786C71300983691 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		FBC5A3442786D42500983691 /* ScrollRefreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollRefreshable.swift; sourceTree = "<group>"; };
 		FBC5A3462786E30100983691 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FBC5A3492786EFFB00983691 /* preview.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = preview.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		1B8446F927858C5500174324 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				FBC5A3482786EFE500983691 /* Static */,
 				FBC5A33E2786C70400983691 /* Helper */,
 				1B84470A2785944800174324 /* ViewModel */,
 				1B8447092785944400174324 /* View */,
@@ -112,6 +115,14 @@
 				FBC5A3462786E30100983691 /* NetworkManager.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		FBC5A3482786EFE500983691 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				FBC5A3492786EFFB00983691 /* preview.gif */,
+			);
+			path = Static;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 			files = (
 				1B84470227858C5600174324 /* Preview Assets.xcassets in Resources */,
 				1B8446FF27858C5600174324 /* Assets.xcassets in Resources */,
+				FBC5A34A2786EFFB00983691 /* preview.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
