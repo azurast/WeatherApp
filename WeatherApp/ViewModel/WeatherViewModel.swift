@@ -24,7 +24,6 @@ struct WeatherFormat {
 class WeatherViewModel: ObservableObject {
   @Published var weather = Weather(lat: 0.0, lon: 0.0, weather: [], base: "", temp: 0.0, feelsLike: 0.0, tempMin: 0.0, tempMax: 0.0, pressure: 0.0, humidity: 0.0, visibility: 0, windSpeed: 0.0, windDeg: 0.0, allClouds: 0, dt: Date(), sysType: 0, sysId: 0, sysCountry: "", sysSunrise: Date(), sysSunset: Date(), timezone: 0, id: 0, name: "", cod: 0)
   @Published var formattedWeather: WeatherFormat = WeatherFormat()
-  private var cachedFormattedWeather: WeatherFormat = WeatherFormat()
   private static var weatherApiURL = "https://api.openweathermap.org/data/2.5/weather?lat=-6.2146&lon=106.8451&units=metric&appid=2346a7254155ff5fd112d0fbc0fbfc85"
   private let allowedDiskSize = 100 * 1024  * 1024
   private var cache: URLCache {
@@ -49,7 +48,6 @@ class WeatherViewModel: ObservableObject {
     
     // Get from Cache first so UI is not empty
     if let cachedData = self.cache.cachedResponse(for: request) {
-      print("Cached data bytes: \(cachedData)")
       DispatchQueue.main.async {
         self.weather = self.parseJSON(data: cachedData.data)
         self.formatWeather()
@@ -70,7 +68,6 @@ class WeatherViewModel: ObservableObject {
           self.weather = self.parseJSON(data: data)
           self.formatWeather()
         }
-        print("Get Data")
         completionHandler(.success(data))
       }
     }
@@ -87,7 +84,6 @@ class WeatherViewModel: ObservableObject {
     } catch {
       print(error)
     }
-    
     return weather
   }
   
@@ -106,6 +102,5 @@ class WeatherViewModel: ObservableObject {
     formattedWeather.windSpeed = String(format: "%.1f", self.weather.windSpeed!)
     formattedWeather.pressureUnit = String(format: "%.0f", self.weather.pressure!)
     formattedWeather.humidityLevel = String(format: "%.0f", self.weather.humidity!)
-    self.cachedFormattedWeather = self.formattedWeather
   }
 }
