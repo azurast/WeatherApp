@@ -7,10 +7,9 @@
 
 import Foundation
 
-
 func dateFormatter() -> DateFormatter {
     let formatter = DateFormatter()
-    formatter.dateFormat = "dd/mm/yy HH:mm a"
+    formatter.dateFormat = "dd/MM/yy HH:mm a"
     return formatter
 }
 

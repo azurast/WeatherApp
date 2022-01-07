@@ -23,7 +23,9 @@ class NetworkManager: ObservableObject {
   
   init() {
     monitor.pathUpdateHandler = { path in
-      self.isDisconnectedToNetwork = path.status == .unsatisfied
+      DispatchQueue.main.async {
+        self.isDisconnectedToNetwork = path.status == .unsatisfied
+      }
     }
     monitor.start(queue: queue)
   }
