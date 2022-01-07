@@ -61,9 +61,24 @@ struct ContentView: View {
           Button("OK", role: .cancel) {}
         }
         .onAppear() {
-          self.weatherViewModel.fetchWeather()
+          self.weatherViewModel.fetchWeather(completionHandler: { (result) in
+            switch result {
+            case .success(let data):
+              print("Success Data: \(data)")
+            case .failure(let error):
+              print("Error: \(error)")
+            }
+          })
+
         }}) {
-      self.weatherViewModel.fetchWeather()
+          self.weatherViewModel.fetchWeather(completionHandler: { (result) in
+            switch result {
+            case .success(let data):
+              print("Success Data: \(data)")
+            case .failure(let error):
+              print("Error: \(error)")
+            }
+          })
     }
   }
 }

@@ -26,30 +26,57 @@ class WeatherViewModel: ObservableObject {
   @Published var formattedWeather: WeatherFormat = WeatherFormat()
   private var cachedFormattedWeather: WeatherFormat = WeatherFormat()
   private static var weatherApiURL = "https://api.openweathermap.org/data/2.5/weather?lat=-6.2146&lon=106.8451&units=metric&appid=2346a7254155ff5fd112d0fbc0fbfc85"
+  private let allowedDiskSize = 100 * 1024  * 1024
+  private var cache: URLCache {
+    return URLCache(memoryCapacity: 0, diskCapacity: allowedDiskSize)
+  }
+  typealias cacheCompletionHandler = (Result<Data, Error>) -> ()
+ 
+  func configureURLSession() -> URLSession {
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .returnCacheDataElseLoad
+    config.urlCache = cache
+    return URLSession(configuration: config)
+  }
   
   // MARK: Fetch Weather
-  func fetchWeather() {
+  func fetchWeather(completionHandler: @escaping cacheCompletionHandler) {
+    // URL
     guard let weatherApiURL = URL(string: Self.weatherApiURL) else { return }
     
+    // Request
     let request = URLRequest(url: weatherApiURL)
-    let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+    
+    // Get from Cache first so UI is not empty
+    if let cachedData = self.cache.cachedResponse(for: request) {
+      print("Cached data bytes: \(cachedData)")
+      DispatchQueue.main.async {
+        self.weather = self.parseJSON(data: cachedData.data)
+        self.formatWeather()
+      }
+      completionHandler(.success(cachedData.data))
+    }
+    
+    // Session & Task
+    let task = configureURLSession().dataTask(with: request) { (data, response, error) -> Void in
       if let error = error {
-        print("Can't Fetch")
-        print(error)
-        return
+        completionHandler(.failure(error))
       }
       
-      if let data = data {
+      if let data = data, let response = response {
+        let cachedData = CachedURLResponse(response: response, data: data)
+        self.cache.storeCachedResponse(cachedData, for: request)
         DispatchQueue.main.async {
           self.weather = self.parseJSON(data: data)
           self.formatWeather()
         }
+        print("Get Data")
+        completionHandler(.success(data))
       }
-    })
-    
+    }
     task.resume()
   }
-  
+   
   // MARK: Parse JSON Data
   func parseJSON(data: Data) -> Weather {
     let decoder = JSONDecoder()
